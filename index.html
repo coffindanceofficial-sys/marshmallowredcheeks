@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Poppins,Arial;
+background:black;
+color:white;
+text-align:center;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+/* galaxy background */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#1a1a2e,#000);
+z-index:-2;
+}
+
+section{padding:90px 20px;}
+
+h1{font-size:42px;}
+
+.gallery img{
+width:220px;
+margin:12px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(255,0,100,0.6);
+}
+
+.dark{background:#111;}
+
+button{
+padding:15px 25px;
+font-size:18px;
+margin:10px;
+border:none;
+border-radius:12px;
+background:#ff2e63;
+color:white;
+cursor:pointer;
+}
+
+.hidden{display:none;}
+
+/* password screen */
+#lock{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+/* floating hearts */
+.heart{
+position:fixed;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* shooting stars */
+.star{
+position:fixed;
+width:2px;
+height:80px;
+background:white;
+animation:shoot 3s linear infinite;
+}
+
+@keyframes shoot{
+0%{transform:translate(0,0);}
+100%{transform:translate(-400px,400px);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="lock">
+<h1>enter our special date ❤️</h1>
+<input id="pass" type="password">
+<button onclick="unlock()">enter</button>
+</div>
+
+<section>
+<h1 id="typing"></h1>
+<p>scroll slowly… ❤️</p>
+</section>
+
+<section>
+<h2>my favorite human</h2>
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+</div>
+</section>
+
+<section class="dark">
+<h2>what you did to my life…</h2>
+<p>
+You came into my life so quietly that I did not even notice the exact moment things began to change, but now when I look back everything feels divided into before you and after you. Before you I carried parts of myself that felt heavy and unfinished, and after you I start feeling lighter without understanding how. You do not fix my life in loud dramatic ways. You soften it. You make ordinary days feel worth waking up for and silence feel less empty. I find myself speaking more honestly, laughing more freely, and resting more deeply because somewhere along the way your presence teaches my heart that it is safe to exist without armor. The biggest impact you have is not something the world can see. It is the quiet peace that grows inside me just from loving you and being loved by you, like I finally learn what it means to feel at home inside my own life.
+</p>
+</section>
+
+<section>
+<h2>do you love me?</h2>
+<button onclick="alert('i knew it ❤️')">YES ❤️</button>
+<button onmouseover="move(this)">NO 😭</button>
+</section>
+
+<section class="dark">
+<h2>love quiz 😈</h2>
+
+<p>who is the cutest?</p>
+
+<button onclick="alert('correct answer 😭❤️ always you')">you ❤️</button>
+
+<button onclick="alert('skill issue paglu 😎')">me 😎</button>
+
+<button onclick="alert('achaji this is actually true 😭❤️')">both of us 💑</button>
+
+<button onclick="alert('YESSSS 😭❤️ my forever')">kashmiri momo 🫶</button>
+
+</section>
+
+<section>
+<h2>time since we met</h2>
+<p id="timer"></p>
+</section>
+
+<section>
+<h2 onclick="secret()">❤️ secret</h2>
+<p id="secretmsg" class="hidden">
+thank you for choosing me over so many optioms yayayayayayayayaya yaar please mujhpe cheat mat karna warna rodunga:((
+</p>
+</section>
+
+<section class="dark">
+<h2>our song 🎵</h2>
+<audio controls autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+</section>
+
+<section>
+<h1>happy valentine again my cutu,heres an old poem i wrote for you last year arond june.
+Muzzu, my moonlight in a crowded sky,
+With sparkling eyes that steal breath as they fly.
+Each glance from her, a silent spark,
+That lights my soul when the world feels dark.
+
+Her lips , so shiny, so soft, so divine,
+They whisper poetry sweeter than wine.
+The kind you dream of, glossy and red,
+A single kiss and Im far from the dead.
+
+That nose ? better than Cleopatra's grace,
+Perfectly sculpted, proud on her face.
+It stands like royalty, calm and true,
+A queen or angle with a rooh.
+
+Her cheeks so shiny, glowing and bright,
+Soft like clouds kissed by morning light.
+You"d swear they hold the warmth of sun,
+In her smile, all battles are won.
+
+And then her hair, oh silky and long,
+Like an ad come to life, smooth and strong.
+It flows like rivers in midnight dreams,
+Sometimes wild, sometimes serene.
+
+She wears the world like its made for her,
+From casual tees to a silk-soft kurta.
+Every outfit turns into art,
+Like her beauty dances with every part.❤️</h1>
+<p>
+If you buy yourself 19 roses and look in the mirror you'll see 20 beautiful roses hehe.
+</p>
+</section>
+
+<script>
+
+/* unlock */
+function unlock(){
+if(document.getElementById("pass").value==="6425"){
+document.getElementById("lock").style.display="none";
+}}
+
+/* typing */
+var text="hey… this is for you ❤️";
+var i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,70);
+}}
+type();
+
+/* moving button */
+function move(btn){
+btn.style.position="absolute";
+btn.style.top=Math.random()*500+"px";
+btn.style.left=Math.random()*500+"px";
+}
+
+/* quiz */
+function quiz(){alert("correct answer motu 😌❤️");}
+
+/* secret */
+function secret(){
+document.getElementById("secretmsg").style.display="block";
+}
+
+/* timer */
+var start=new Date("2024-04-24");
+setInterval(()=>{
+var now=new Date();
+var diff=now-start;
+var days=Math.floor(diff/(1000*60*60*24));
+document.getElementById("timer").innerText=
+days+" days ❤️";
+},1000);
+
+/* floating hearts */
+setInterval(()=>{
+var h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+
+/* shooting stars */
+setInterval(()=>{
+var s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),3000);
+},2000);
+
+</script>
+
+</body>
+</html>
